@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <table id="display"></table>
+        <div id="button"></div>
+    <script>
+
+        let myarray = [];
+        let pageSize = 10;
+        let startpage =1;
+    
+        fetch("https://jsonplaceholder.typicode.com/comments")
+        .then(y=>y.json())
+        .then(y=>{
+
+            myarray=y;
+
+    
+            displayButton();
+            display();
+        })
+
+        function displayButton()
+        {
+            let numberPAge = Math.ceil(myarray.length/pageSize);
+            let b="";
+           
+       for(let i=startpage;i<startpage+3 && i<=numberPAge;i++)
+        {
+            b+=`<button onclick="paginationNext(${i})">${i}</button>` 
+        }   
+
+        b+=`<button onclick="paginationNext('n')">Next</button>` ;
+
+
+            document.getElementById("button").innerHTML = b;
+
+        }
+
+        function paginationNext(d)
+        {
+       if(d == "n")
+        {
+            startpage= startpage+1;
+
+       
+
+        }
+        else
+        {
+            startpage = d;
+        }
+        if(startpage%3 ==0)
+        {
+            displayButton();
+        }
+        display();
+
+        }
+
+    
+
+        function display()
+        {
+            let start = (startpage-1)*pageSize;
+            let end = (start)+pageSize;
+            let ar = myarray.slice(start,end);
+
+            let ol = ar.map(function(v){
+
+                return `<tr><td>${v.id}</td><td>${v.name}</td></tr>`
+            });
+
+            document.getElementById("display").innerHTML = ol.join(" ");
+
+        }
+
+
+    </script>
+    
+</body>
+</html>

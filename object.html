@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="display"></div>
+    <div id="displaylastName"></div>
+    <div id="obj"></div>
+    <script>
+        //object store multiple property,\
+        // object access using keyname which is property name
+        // object.propertyname
+        //object[propertyname]
+        let op = {
+
+            firstName : "div",
+            lastName : "patel"
+        };
+
+        op["test"] = "Avc";
+
+        document.getElementById("display").innerHTML = op.firstName;
+        document.getElementById("displaylastName").innerHTML = op["lastName"];
+        document.getElementById("obj").innerHTML = op;
+
+        console.log(typeof op);
+        console.log(op);
+    </script>
+    
+</body>
+</html>

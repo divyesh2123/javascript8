@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let p = [2,3,4,5,6];
+        //pre == first element for first time only condtion apply
+        //curre= first time 2 element
+        //after than pre = return value
+        // if accumaltor is provided than pre == acumlator first time
+        // then next it will be value of return
+      let dd=  p.reduce(function(pre,cur,index,array){
+
+            return pre+cur;
+        },0);
+
+        console.log(dd);
+
+    </script>
+</body>
+</html>

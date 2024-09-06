@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        let p = [2,2,1,2,22,22,12,122];
+
+        let arr = p.reduce(function(pre,cur, index, array){
+            if(pre.includes(cur)== false && 
+            
+            array.indexOf(cur) == array.lastIndexOf(cur)
+        ){
+                pre.push(cur);
+            }
+            return pre;
+        },[])
+        console.log(arr);
+        
+    </script>
+    
+</body>
+</html>
