@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table id="display"></table>
+
+    <script>
+        //need to display nester objecy
+
+        fetch("https://jsonplaceholder.typicode.com/users")
+        .then(function(v){
+
+            return v.json()
+        }).then(function(p){
+
+            let a = p.map(function(v){
+
+                let d="<tr>"
+                for (const key in v) {
+
+                    d += `<td>${v[key]}</td>`
+                }
+
+                d +="</tr>";
+
+                return d;
+
+            });
+
+            document.getElementById("display").innerHTML = a.join(" "); 
+
+        });
+
+
+    </script>
+    
+</body>
+</html>

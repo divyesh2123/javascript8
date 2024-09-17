@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <table id="table1" style="float: left;width: 50%;">
+
+    </table>
+
+    <table id="table2" style="float: left;width: 50%;"  ondrop="drop(event)" ondragover="allowDrop(event)">
+        <tr>
+            <td>
+                1
+            </td>
+            <td>
+                Test
+            </td>
+            <td>
+                false
+            </td>
+        </tr>
+
+    </table>
+    
+    <script>
+
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+        fetch("https://jsonplaceholder.typicode.com/todos")
+        .then(function(v){
+            return v.json();
+        })
+        .then(function(y)
+        {
+            let data= y.map((t,index)=>{
+
+            return `<tr id=${index} draggable="true" ondragstart="drag(event)"><td>${t.userId}</td><td>${t.title}</td><td>${t.completed}</td></tr>`
+            });
+
+            document.getElementById("table1").innerHTML = data.join(" ");
+
+        });
+
+      
+
+        function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  ev.target.appendChild(document.getElementById(data));
+}
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body >
+    <form onsubmit="handleSubmit()">
+
+        <input type="text"  name="firstName"/>
+        <input type="text"  name="lastName"/>
+        <input type="text" name="middleName"/>
+        <input type="submit" value="save"/>
+
+    </form>
+
+    <a href="forof.html">R</a>
+
+    <script>
+        let isSubmitClick = false;
+
+        function handleSubmit()
+        {
+            isSubmitClick=true;
+        }
+
+        function handleForm()
+        {
+        if(!isSubmitClick)
+        {
+           confirm("You have not saved the data");
+        }
+        
+
+        }
+
+        addEventListener("pagehide",handleForm)
+    </script>
+</body>
+</html>

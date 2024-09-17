@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="test">THis is the Elements</div>
+    <div class="test">THis is the Elements1</div>
+    <div class="test">THis is the Element2</div>
+    <div class="test">THis is the Elements</div>
+    <div class="test">THis is the Elements</div>
+    <div class="test">THis is the Elements</div>
+    <div class="test">THis is the Elements</div>
+    <div class="test">THis is the Elements</div>
+    <div class="test">THis is the Elements</div>
+
+    <script>
+
+        let p = document.querySelectorAll(".test");
+        
+        p.forEach(function(value,index,arrat){
+
+            value.style.color="red";
+        })
+
+
+    </script>
+    
+</body>
+</html>
