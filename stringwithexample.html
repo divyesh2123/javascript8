@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let p = new Map();
+        let mystring = "This is the javascript This is the javascript This is the javascript";
+
+    for(let i=0;i<mystring.length;i++)
+    {
+    if(p.has(mystring[i])== false)
+    {
+        p.set(mystring[i],1);
+
+    }
+    else
+    {
+        let c = p.get(mystring[i]);
+        p.set(mystring[i],c+1);
+
+    }
+    
+
+
+    }
+
+    console.log(p);
+
+
+    </script>
+</body>
+</html>

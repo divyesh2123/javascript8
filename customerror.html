@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="d"/>
+    <input type="submit" value="save" onclick="handleSave()"/>
+    <script>
+        //apply try and catch and try to display some fancy message and
+        //perform validation using try catch and throw
+        function handleSave()
+        {
+            try
+            {
+            let p = +document.getElementById("d").value;
+
+        if(p<0)
+        {
+
+            throw Error("This is the error")
+
+        }
+    }
+    catch(error)
+    {
+        console.log(error)
+
+    }
+
+        } 
+
+    </script>
+</body>
+</html>

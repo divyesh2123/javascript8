@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="dis"></div>
+    <script>
+       //try-catch-finally
+       //try to try out error
+       // if error occurs it move to catch if any
+       // if no error or error still it moves to finally
+       // finally will do cleanup task like files close
+       // file handling etc 
+        try
+        {
+        let a=2;
+
+        alert("Test");
+
+        let d = a.toLocaleLowerCase();
+        }
+        catch(error)
+        {
+            let a=2;
+
+        alert("Test1");
+
+        let d = a.toLocaleLowerCase();
+            console.log(error);
+        }
+        finally
+        {
+            alert("fff");
+            document.getElementById("dis").innerHTML = "";
+
+        }
+
+        alert("abc");
+
+    </script>
+</body>
+</html>
