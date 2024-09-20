@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button id="test" name="test">clickme</button>
+
+    <script>
+
+        class test
+        {
+            constructor()
+            {
+                this.name1 = "weltec"
+            }
+
+            displaywithnormalfunction()
+            {
+
+                console.log(this.name1);
+
+            }
+
+            displaywitharrowfunctino = ()=>{
+
+                console.log(this.name1)
+            }
+        }
+
+        let p = new test();
+
+        document.getElementById("test").addEventListener("click",p.displaywitharrowfunctino);
+    </script>
+</body>
+</html>
