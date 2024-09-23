@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+</head>
+<body>
+
+    <div>
+        <input type="checkbox" onclick="d(event)" />
+        <label>FullStack</label>  
+
+        <div>
+            <input type="checkbox" onclick="d(event)" />
+            <label>Front-End </label>
+
+            <div>
+
+                <input type="checkbox" name="" id=""> 
+                
+                <label>React</label> 
+                <input type="checkbox" name="" id=""> 
+                
+               <label> Angular </label>
+            </div>
+
+        </div>
+
+        <div>
+            <input type="checkbox" onclick="d(event)" />
+            
+           <label> Back-End </label>
+
+            <div>
+
+                <input type="checkbox" name="" id="">
+                
+                <label>CSharp</label> 
+                <input type="checkbox" name="" id=""> 
+                
+               <label> SQL </label>
+
+            </div>
+
+        </div>
+
+
+    </div>
+    
+    <script>
+
+        function d(e)
+        {
+            let p = e.target.parentElement.querySelectorAll("input[type='checkbox']");
+
+            p.forEach((element,index) => {
+
+                if(index !=0)
+                element.checked = !element.checked
+                
+            });
+
+        }
+
+
+    </script>
+</body>
+</html>
