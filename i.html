@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="display"></ul>
+    <script>
+
+    
+       
+        let p = [2,3,4,6,12,23];
+
+        let p1= p.map((ele)=>{
+
+            return `<li>${ele}</li>`
+        });
+
+        document.getElementById("display").innerHTML = p1.join(" ");
+
+
+
+    </script>
+</body>
+</html>
