@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form onsubmit="handleLogin(event)">
+        <input type="email" name="email" id="email"/>
+        <input type="password" name="password" id="password"/>
+        <input type="submit" value="Login"/>
+
+    </form>
+
+
+    <script>
+        const handleLogin = (e)=>{
+
+            e.preventDefault();
+
+            let obj1= {
+                "email": document.getElementById("email").value,
+                "password": document.getElementById("password").value
+            };
+          
+
+            fetch("http://localhost:4000/accounts/authenticate",{
+                    method:"POST",
+                    headers: {
+                        'Content-Type':"application/json"
+                    },
+                    body: JSON.stringify(obj1)
+                })
+                .then(y=>y.json())
+                .then(y=>{
+                    localStorage.setItem("token",JSON.stringify(y));
+                    window.location.href = "account.html";
+                })
+        }
+
+    </script>
+</body>
+</html>

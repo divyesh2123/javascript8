@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <table id="table1"></table>
+        <table id="table2"></table>
+
+    <script>
+
+            const getDataFromAPI = (url,callback)=>{
+                alert("v1");
+                fetch(url).then(y=>y.json())
+                .then(y=>{
+                    callback(y);
+                })
+
+
+
+            }
+
+            alert("v2");
+
+            const displaypost = (data)=>{
+
+                alert("V3");
+
+                    let a = data.map((v)=>{
+
+                        return (`<tr>${v.title}<td>${v.body}</td><td>${v.userId}</td></tr>`)
+                    });
+
+                    document.getElementById("table1").innerHTML = a.join(" ");
+
+            }
+
+            const displaycomments = (data)=>{
+                alert("V4");
+
+
+let a = data.map((v)=>{
+
+    return (`<tr>${v.email}<td>${v.body}</td><td>${v.name}</td></tr>`)
+});
+
+document.getElementById("table2").innerHTML = a.join(" ");
+
+}
+
+getDataFromAPI("https://jsonplaceholder.typicode.com/posts",displaypost)
+getDataFromAPI("https://jsonplaceholder.typicode.com/comments",displaycomments)
+
+    </script>
+</body>
+</html>

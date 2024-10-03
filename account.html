@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+       let to =  JSON.parse(localStorage.getItem("token"));
+        fetch("http://localhost:4000/accounts",{
+            headers: {
+                'Content-Type':"application/json",
+                'Authorization': `Bearer ${to.jwtToken}`
+            }
+        }).then(y=>y.json())
+        .then(y=>{
+            console.log(y);
+        })
+    </script>
+</body>
+</html>

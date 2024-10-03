@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <form name="test" onsubmit="handleSave(event)">
+
+            <label for="title1">Title</label>
+            <select name="title" id="title1">
+                <option value="Mr">Mr</option>
+                <option value="Mrs">Mrs</option>
+                <option value="Miss">Miss</option>
+            </select>
+
+            <label for="firstName">FirstName</label>
+
+            <input type="text" name="firstName" id="firstName">
+
+            <label for="lastName">lastName</label>
+
+            <input type="text" name="lastName" id="lastName">
+
+            <label for="email">email</label>
+
+            <input type="text" name="email" id="email">
+
+            <label for="password">password</label>
+
+            <input type="text" name="password" id="password">
+
+            <label for="confirmPassword">confirmPassword</label>
+
+            <input type="text" name="confirmPassword" id="confirmPassword">
+
+            <label for="confirmPassword">confirmPassword</label>
+
+            <input type="checkbox" name="acceptTerms" id="acceptTerms">
+
+            <input type="submit" value="save"/>
+        </form>
+
+        <script>
+
+            const handleSave = (e)=>{
+                e.preventDefault();
+
+                let obj1= {}
+                let p = document.forms["test"]
+
+            for (let i = 0; i < p .length; i++) 
+            { 
+                
+            if(p.elements[i].type=="checkbox" || p.elements[i].type=="text")
+            {
+                    if(p.elements[i].type=="checkbox")
+                    {
+                        obj1[p.elements[i].name] = p.elements[i].checked
+                    }
+                    else
+                    {
+                    obj1[p.elements[i].name] = p.elements[i].value ;
+                    }
+            }
+            else
+            {
+                if(p.elements[i].type!="submit")
+                    {
+                        obj1[p.elements[i].name] = p.elements[i].value ;
+
+                    }
+
+            }
+}
+
+                let obj = {
+
+                    "title": document.getElementById("title1").value,
+                    "firstName": document.getElementById("firstName").value,
+                    "lastName": document.getElementById("lastName").value,
+                    "email": document.getElementById("email").value,
+                    "password": document.getElementById("password").value,
+                    "confirmPassword": document.getElementById("confirmPassword").value,
+                    "acceptTerms": document.getElementById("acceptTerms").checked
+                }
+
+                fetch("http://localhost:4000/accounts/register",{
+                    method:"POST",
+                    headers: {
+                        'Content-Type':"application/json"
+                    },
+                    body: JSON.stringify(obj1)
+                })
+                .then(y=>y.json())
+                .then(y=>{
+                    console.log(y);
+                })
+
+            }
+
+        </script>
+</body>
+</html>
