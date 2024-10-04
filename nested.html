@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <table id="display"></table>
+
+    <script>
+
+        fetch("https://jsonplaceholder.typicode.com/users").then(y=>y.json())
+        .then(y=>{
+
+            display(y)
+        });
+
+
+        function display(data)
+        {
+
+            let p1= data.map((v)=>{
+
+                let d="<tr>"
+                    
+                    d+=display1(v); 
+
+                d+="</tr>";
+
+                return d;
+
+            })
+
+
+            document.getElementById("display").innerHTML = p1.join(" ");
+
+        }
+
+        function display1(v)
+        {
+            let d1= "";
+        if(typeof v == "object")
+        {
+            for (const key in v) {
+                d1 +=display1(v[key])
+            }
+
+            return d1;
+           
+        }
+        else
+        {   
+            return `<td>${v}</td>`
+
+        }
+
+        }
+    </script>
+    
+</body>
+</html>
